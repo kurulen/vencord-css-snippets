@@ -1,0 +1,25 @@
+/*
+   FuckNitro v0.1.0
+   (c) kurulen, 2023
+
+   Attempts to hide every Nitro-related element on Discord.
+   Works well with the NoPendingCount plugin.
+   
+   Questions? hello@ataraxia.ws
+*/
+
+[aria-label='User Badges'], [class^="avatarDecoration"], [class^= "premiumIconWrapper"] {
+   visibility: hidden !important;
+}
+
+[data-list-item-id$="nitro"], [class^="premiumTab"], [role="tab"]:nth-of-type(13), [role="tab"]:nth-of-type(14), [role="tab"]:nth-of-type(15), [role="tab"]:nth-of-type(16), [role="tablist"] [class^="header"], [role="tablist"] [class^="separator"], [class^="progressBarContainer"], div[class^="progressFraction"] > svg[class*="directionRight"], div[id^="guild-header-popout-premium-subscribe"], div[class*="tryItOutSection"], div[class*="premiumFeatureBannerBackground"], div[class^="newBackgroundTooltipContainer"], div[class^="sectionsContainer"] div[class^="customizationSection"]:nth-of-type(4) {
+   display: none !important;
+}
+
+[class^="topSection"] [class^="header"], [class^="pointerEvents"], [class^="avatar"], [class^="header"] [class^="guildIcon"], ul[aria-label^="Channels"] div[class*="containerWithMargin"] {
+   pointer-events: none !important;
+}
+
+[class^="relationshipButtons"], [class^="avatarWrapper"] {
+   pointer-events: all !important;
+}
