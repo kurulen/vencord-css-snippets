@@ -1,5 +1,5 @@
 /*
-   FuckNitro v0.1.3
+   FuckNitro v0.1.4
    (c) kurulen, 2023
 
    Attempts to hide every Nitro-related element on Discord.
@@ -16,7 +16,7 @@
    visibility: hidden !important;
 }
 
-[data-list-item-id$="nitro"], [class^="premiumTab"], [role="tab"]:nth-of-type(13), [role="tab"]:nth-of-type(14), [role="tab"]:nth-of-type(15), [role="tab"]:nth-of-type(16), [role="tablist"] [class^="header"], [role="tablist"] [class^="separator"], [class^="progressBarContainer"], div[class^="progressFraction"] > svg[class*="directionRight"], div[id^="guild-header-popout-premium-subscribe"], div[class*="tryItOutSection"], div[class*="premiumFeatureBannerBackground"], div[class^="newBackgroundTooltipContainer"], div[class^="sectionsContainer"] div[class^="customizationSection"]:nth-of-type(4), [class^="upsellOverlayContainer"], [class*="remiumHoverState"], [class^="popoutContainer"] [class*="ctaButton"] {
+[data-list-item-id$="nitro"], [class^="premiumTab"], [role="tab"]:nth-of-type(13), [role="tab"]:nth-of-type(14), [role="tab"]:nth-of-type(15), [role="tab"]:nth-of-type(16), [role="tablist"] [class^="header"], [role="tablist"] [class^="separator"], [class^="progressBarContainer"], div[class^="progressFraction"] > svg[class*="directionRight"], div[id^="guild-header-popout-premium-subscribe"], div[class*="tryItOutSection"], div[class*="premiumFeatureBannerBackground"], div[class^="newBackgroundTooltipContainer"], div[class^="sectionsContainer"] div[class^="customizationSection"]:nth-of-type(4), div[class^="customizationSection"]:nth-of-type(5), [class^="upsellOverlayContainer"], [class*="remiumHoverState"], [class^="popoutContainer"] [class*="ctaButton"] {
    display: none !important;
 }
 
