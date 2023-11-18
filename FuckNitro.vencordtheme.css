@@ -1,5 +1,5 @@
 /*
-   FuckNitro v0.2.0-2
+   FuckNitro v0.2.1
    (c) kurulen, 2023
 
    Attempts to hide every Nitro-related element on Discord.
@@ -12,22 +12,23 @@
     --placeholder-url: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAdnJLH8AAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAxJREFUCNdjiEj9BAACyAGwDgY9BAAAAABJRU5ErkJggg==');
 }
 
-[aria-label='User Badges'],
+[class*='profileBadges'],
 [class*="avatarDecoration"],
-[class*="premiumIcon"],
-[aria-label='Send a gift'] {
+[class*="premiumIcon"] {
     visibility: hidden !important;
 }
 
 [data-list-item-id*="nitro"],
 [data-list-item-id*="shop"],
 [class*="premiumTab"],
-[role="tab"]:nth-of-type(13),
-[role="tab"]:nth-of-type(14),
-[role="tab"]:nth-of-type(15),
-[role="tab"]:nth-of-type(16),
-[role="tablist"] [class*="header"],
-[role="tablist"] [class*="separator"],
+[class*="sidebarRegionScroller"] [class*="sidebar"] [class*="side"] [role="tab"]:nth-of-type(13),
+[class*="sidebarRegionScroller"] [class*="sidebar"] [class*="side"] [role="tab"]:nth-of-type(14),
+[class*="sidebarRegionScroller"] [class*="sidebar"] [class*="side"] [role="tab"]:nth-of-type(15),
+[class*="sidebarRegionScroller"] [class*="sidebar"] [class*="side"] [role="tab"]:nth-of-type(16),
+[class*="sidebarRegionScroller"] [class*="sidebar"] [class*="side"] div:nth-of-type(5),
+[class*="sidebarRegionScroller"] [class*="sidebar"] [class*="side"] div:nth-of-type(10),
+[class*="sidebarRegionScroller"] [class*="sidebar"] [class*="side"] div:nth-of-type(11),
+[class*="sidebarRegionScroller"] [class*="sidebar"] [class*="side"] div:nth-of-type(12),
 [class*="progressBarContainer"],
 [class*="progressFraction"] > [class*="directionRight"],
 [id*="guild-header-popout-premium-subscribe"],
@@ -47,7 +48,8 @@
 [aria-label="ADD_PACK"],
 [class*="burstGlow"],
 [aria-label="UNAVAILABLE"],
-[class*="burstReactionTooltipPrompt"] div {
+[class*="burstReactionTooltipPrompt"] div,
+[class*="sansAttachButton"] [class*="buttons"] > button {
     display: none !important;
 }
 
@@ -55,7 +57,7 @@
 [class*="pointerEvents"],
 [class*="avatar"],
 [class*="header"] [class*="guildIcon"],
-ul[aria-label*="Channels"] div[class*="containerWithMargin"] {
+[id*="channels"] ul[class*="content"] div[class*="containerWithMargin"] {
     pointer-events: none !important;
 }
 
