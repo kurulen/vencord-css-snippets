@@ -1,5 +1,5 @@
 /*
-   FuckNitro v0.2.0
+   FuckNitro v0.2.0-2
    (c) kurulen, 2023
 
    Attempts to hide every Nitro-related element on Discord.
@@ -9,7 +9,7 @@
 */
 
 :root {
-    --placeholder-url: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAdnJLH8AAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAxJREFUCNdjUFJSAgAA0ABnkoj/KQAAAABJRU5ErkJggg==');
+    --placeholder-url: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAdnJLH8AAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAxJREFUCNdjiEj9BAACyAGwDgY9BAAAAABJRU5ErkJggg==');
 }
 
 [aria-label='User Badges'],
