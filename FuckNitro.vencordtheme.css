@@ -1,5 +1,5 @@
 /*
-   FuckNitro v0.2.1
+   FuckNitro v0.2.2
    (c) kurulen, 2023
 
    Attempts to hide every Nitro-related element on Discord.
@@ -10,11 +10,15 @@
 
 :root {
     --placeholder-url: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAdnJLH8AAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAxJREFUCNdjiEj9BAACyAGwDgY9BAAAAABJRU5ErkJggg==');
+    --nbanner-height: 64px;
+    --mbanner-height: 96px;
 }
 
 [class*='profileBadges'],
+[class*='badgelist' i],
 [class*="avatarDecoration"],
-[class*="premiumIcon"] {
+[class*="premiumIcon"],
+[class*="bannerPremium"] {
     visibility: hidden !important;
 }
 
@@ -45,11 +49,16 @@
 [class*="profileEffects"],
 [class*="reactionEmojiDetails"],
 [class*="otherEmojisContainer"],
+[class*="guildSection"],
 [aria-label="ADD_PACK"],
 [class*="burstGlow"],
 [aria-label="UNAVAILABLE"],
 [class*="burstReactionTooltipPrompt"] div,
-[class*="sansAttachButton"] [class*="buttons"] > button {
+[class*="sansAttachButton"] [class*="buttons"] > button,
+[class*="profileColors"] [class*="userPanelInnerThemed"] [class*="containerWrapper"],
+[class*="hasCollectiblesUpsell"] [class*="userPopoutInner"] [class*="containerWrapper"],
+[class*="userProfileModalInner"] [class*="topSection"] [class*="bannerSVGWrapper"] > mask,
+[class*="userProfileModalInner"] [class*="topSection"] [class*="bannerSVGWrapper"] > foreignObject {
     display: none !important;
 }
 
@@ -66,12 +75,63 @@
     pointer-events: all !important;
 }
 
-[class*="bannerPremium"] {
-    background: var(--placeholder-url) !important;
+/* These fixes resize premium (Nitro) banners to a non-premium (non-Nitro) state. */
+[class*="bannerSVGWrapper"] {
+    height: var(--nbanner-height) !important;
+    min-height: var(--nbanner-height) !important;
+    max-height: var(--nbanner-height) !important;
 }
 
+[class*="userProfileModalInner"] [class*="topSection"] [class*="bannerSVGWrapper"] {
+    height: var(--mbanner-height) !important;
+    min-height: var(--mbanner-height) !important;
+    max-height: var(--mbanner-height) !important;
+}
+
+[class*="avatarPositionPremiumBanner"],
+[class*="avatarWrapperNormal"],
+[class*="userInfo"] [class*="avatar"] {
+    top: 16px !important;
+}
+
+
+
 /* Optional fixes: Vencord */
-/* Destroy some extra Vencord upselling that we didn't destroy with the base filters */
+/* Destroy some extra Vencord upselling that we didn't destroy with the base filters. */
 [class*="vc-settings-donate"] {
     display: none !important;
+}
+
+
+
+/* Optional fixes: Nitpicks */
+/* Remove the circle behind the status icon. */
+:is([class*="avatar"], [class*="header"]) [class*="wrapper"] [class*="mask"] > circle {
+    display: none !important;
+}
+
+:is([class*="avatar"], [class*="header"]) [class*="wrapper"] [class*="mask"] > :is(foreignObject, rect) {
+    mask: unset !important;
+    mask-image: radial-gradient(circle, black 70%, rgba(0, 0, 0, 0.0) 70%) !important;
+}
+
+/* Remove the status icon on avatar modals and popouts, replacing it with a radial status indicator. */
+[class*="avatarHoverTarget"] [class*="wrapper"] [class*="mask"] > rect {
+    position: relative;
+    z-index: 0;
+    width: 80px;
+    height: 80px;
+    x: -0.24%;
+    y: -0.24%;
+    mask-image: radial-gradient(circle, rgba(0, 0, 0, 0.0) 62%, black 70%, rgba(0, 0, 0, 0.0) 71%) !important;
+}
+
+[class*="header"] [class*="wrapper"] [class*="mask"] > rect {
+    position: relative;
+    z-index: 0;
+    width: 121px;
+    height: 121px;
+    x: -0.26%;
+    y: -0.26%;
+    mask-image: radial-gradient(circle, rgba(0, 0, 0, 0.0) 62%, black 70%, rgba(0, 0, 0, 0.0) 71%) !important;
 }
