@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         AntiNitro
-@version      20240621.13.18
+@version      20240624.08.43
 @namespace    userstyles.world/user/kurulen
 @description  Attempts to remove Discord's Nitro-related annoyances in the app.
 @author       kurulen
@@ -47,7 +47,6 @@
 [class*="burstGlow"],
 [class*="notAppAsidePanel"] [class*="wrapper"] [class*="contentWrapper"] [class*="entrypoint"],
 [aria-label="UNAVAILABLE"],
-[class*="containerWithMargin"] [class*="textArea"] [class*="progressFraction"],
 [class*="burstReactionTooltipPrompt"] div,
 [class*="sansAttachButton"] [class*="buttons"] > button,
 [class*="shopForAllBackgroundImage"],
@@ -73,7 +72,8 @@
 [class*="upsellImage"],
 [class*="upsellImage"] + [class*="bodyText"],
 [class*="upsellImage"] + [class*="bodyText"] + [class*="perksList"],
-[role*="dialog"] > [class*="fullscreenOnMobile"] > [class*="justifyEnd"] > [class*="footerRight"] > [class*="colorGreen"] {
+[role*="dialog"] > [class*="fullscreenOnMobile"] > [class*="justifyEnd"] > [class*="footerRight"] > [class*="colorGreen"],
+[class*="primaryEmoji"] + [class*="truncatingText"] > [class*="text-sm/normal"] {
     display: none !important;
 }
 
@@ -81,8 +81,7 @@
 [class*="pointerEvents"],
 [class*="avatar"],
 [class*="header"] [class*="guildIcon"],
-[class*="premiumIcon"],
-[id*="channels"] ul[class*="content"] div[class*="containerWithMargin"] {
+[class*="premiumIcon"] {
     pointer-events: none !important;
 }
 
@@ -103,9 +102,14 @@
 /* Avatar fix. */
 [class*="avatarPositionPremiumBanner"],
 [class*="avatarWrapperNormal"],
-[class*="userInfo"] [class*="avatar"] {
+[class*="userProfileInner"] > [class*="scrollerBase"] > div > [class*="avatarWrapper"] {
     top: 16px !important;
 }
+/* Make the avatar in the My Account tab align more with the (hidden) banner. */
+[id*="my-account-tab"] > div > div > [class*="children"] > [class*="accountProfileCard"] > [class*="userInfo"] > [class*="avatar"] {
+    top: 45px !important;
+}
+
 /* Make the avatar clickable again so profiles can be expanded. */
 [class*="relationshipButtons"],
 [class*="avatarWrapper"] {
@@ -127,11 +131,16 @@
     display: none !important;
 }
 
+/* Hide the "Gifts You Purchased" header in the Gift Inventory tab. */
+[class*="questsContainer"] + [class*="containerWithMargin"] + [class*="containerWithMargin"] {
+    display: none !important;
+}
+
 /*******************************************************************************/
 /* Abandon all hope, all ye who enter here... */
 /*******************************************************************************/
 /* HACK: Block an element based on ALL TRANSLATIONS of its aria-label. */
-/* Tab for Merch */
+/* Tabs for Merch and HypeSquad */
 [aria-label*="Merch"],
 [aria-label*="Merch"] + div,
 [aria-label*="Produits dérivés"],
@@ -176,67 +185,43 @@
 [aria-label*="週邊商品"] + div,
 [aria-label*="굿즈"],
 [aria-label*="굿즈"] + div,
-/* Tabs for Subscriptions and Gift Inventory */
-[aria-label*="Abonnementer"],
+/* Tab for Gift Inventory */
 [aria-label*="Gave inventar"],
-[aria-label*="Abonnements"],
 [aria-label*="Geschenkinventar"],
-[aria-label*="Subscriptions"],
 [aria-label*="Gift Inventory"],
-[aria-label*="Suscripciones"],
 [aria-label*="Inventario de regalos"],
 [aria-label*="Inventaire des cadeaux"],
-[aria-label*="Pretplate"],
 [aria-label*="Popis darova"],
-[aria-label*="Abbonamenti"],
 [aria-label*="Inventario regali"],
-[aria-label*="Prenumeratos"],
 [aria-label*="Dovanų atsargos"],
-[aria-label*="Előfizetések"],
 [aria-label*="Ajándék leltár"],
-[aria-label*="Abonnementen"],
 [aria-label*="Cadeau-inventaris"],
 [aria-label*="Gaver"],
-[aria-label*="Subskripcje"],
 [aria-label*="Ekwipunek prezentów"],
-[aria-label*="Assinaturas"],
 [aria-label*="Inventário de presentes"],
-[aria-label*="Abonamente"],
 [aria-label*="Inventar cadouri"],
-[aria-label*="Tilaukset"],
 [aria-label*="Lahjaluettelo"],
-[aria-label*="Prenumerationer"],
 [aria-label*="Gåvolager"],
-[aria-label*="Đăng Ký"],
 [aria-label*="Kho Quà Tặng"],
-[aria-label*="Abonelikler"],
 [aria-label*="Hediye Envanteri"],
-[aria-label*="Předplatné"],
 [aria-label*="Inventář dárků"],
-[aria-label*="Συνδρομές"],
 [aria-label*="Απόθεμα δώρων"],
-[aria-label*="Абонаменти"],
 [aria-label*="Инвентар с подаръци"],
-[aria-label*="Подписки"],
 [aria-label*="Склад подарков"],
-[aria-label*="Передплати"],
 [aria-label*="Перелік подарунків"],
-[aria-label*="सब्सक्रिप्शन"],
 [aria-label*="गिफ्ट सूची"],
-[aria-label*="การสมัครสมาชิก"],
 [aria-label*="ห้องเก็บของขวัญ"],
-[aria-label*="订阅"],
 [aria-label*="礼物库"],
 [aria-label*="購読"],
 [aria-label*="ギフトインベントリ"],
-[aria-label*="訂閱"],
 [aria-label*="禮物庫存"],
-[aria-label*="구독"],
 [aria-label*="선물 인벤토리"] {
     display: none !important;
 }
 
+/*******************************************************************************/
 /* OPTIONAL FIXES */
+/*******************************************************************************/
 /* Vencord: */
 /* Destroy the random GIF/image that pops up in the Vencord donate card, */
 /* along with a large header at the top of it. */
@@ -256,5 +241,26 @@
 [id*="popout"]:has([class*="wrapper"] [style*="border-radius: 0px 0px 4px 4px"]) {
     display: none !important;
 }
+
+/* Server Boosts: */
+/* Hide the text and perks list on the first part of the Buy Boosts menu. */
+/* This is added because it talks about badges, a feature I've removed in this userstyle
+   due to Nitro users' badges containing what are essentially Nitro upsells on their profile. */
+[class*="heroImage"] + [class*="text"],
+[class*="heroImage"] + [class*="text"] + [class*="perks"] {
+    display: none !important;
+}
+
+/* Hide the Buy Boosts menu on the server's channel sidebar if there's a goal showing.
+   Commented out by default.
+   ------------------------- */
+/* To uncomment this section, remove this line.
+[class*="containerWithMargin"] [class*="textArea"] [class*="progressFraction"] {
+    display: none !important;
+}
+[id*="channels"] ul[class*="content"] div[class*="containerWithMargin"] {
+    pointer-events: none !important;
+}
+To uncomment this section, remove this line. */
 
 /* } */
