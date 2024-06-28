@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         AntiNitro
-@version      20240624.16.12
+@version      20240628.12.40
 @namespace    userstyles.world/user/kurulen
 @description  Attempts to remove Discord's Nitro-related annoyances in the app.
 @author       kurulen
@@ -122,6 +122,20 @@
 
 /* Hide the "Gifts You Purchased" header in the Gift Inventory tab. */
 [class*="questsContainer"] + [class*="containerWithMargin"] + [class*="containerWithMargin"] {
+    display: none !important;
+}
+
+/* Hide the Super Reactions. */
+[class*="effectsWrapper"],
+[class*="reaction"][style*="background: rgba"] {
+    display: none !important;
+}
+[class*="effectsWrapper"],
+[class*="reaction"][style*="background: rgba"] {
+    pointer-events: none !important;
+}
+/* Hide the "Enable Super Reactions" button. */
+[class*="burstToggle"] {
     display: none !important;
 }
 
