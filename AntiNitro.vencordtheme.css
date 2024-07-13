@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         AntiNitro
-@version      20240628.12.40
+@version      20240713.12.46
 @namespace    userstyles.world/user/kurulen
 @description  Attempts to remove Discord's Nitro-related annoyances in the app.
 @author       kurulen
@@ -15,12 +15,14 @@
 }
 
 [class*='profileBadges'],
-[class*='badgelist' i],
+[class*='badgelist'],
 [class*="avatarDecoration"],
 [class*="premiumIcon"],
 [class*="userProfile"] > [class*="body"] > [class*="container"] > [class*="tags"] > [role*="group"],
 [class*="userProfile"] > [class*="scrollerBase"] > [class*="body"] > [class*="container"] > [class*="tags"] > [role*="group"],
-[class*="bannerPremium"] {
+[class*="bannerPremium"],
+[class*="headerTop"] > [class*="badgeList"],
+[class*="focusLock"][role*="dialog"] > [class*="rootWithShadow"] > [class*="artContainer"] {
     visibility: hidden !important;
 }
 
@@ -74,7 +76,13 @@
 [class*="upsellImage"] + [class*="bodyText"],
 [class*="upsellImage"] + [class*="bodyText"] + [class*="perksList"],
 [role*="dialog"] > [class*="fullscreenOnMobile"] > [class*="justifyEnd"] > [class*="footerRight"] > [class*="colorGreen"],
-[class*="primaryEmoji"] + [class*="truncatingText"] > [class*="text-sm/normal"] {
+[class*="primaryEmoji"] + [class*="truncatingText"] > [class*="text-sm/normal"],
+[class*="tags"] > [class*="container"],
+[class*="badgelistGroup"],
+[class*="userProfileInner"] > div > [class*="overlay2"],
+[class*="focusLock"][role*="dialog"] > [class*="rootWithShadow"] > [class*="content"] > h2,
+[class*="focusLock"][role*="dialog"] > [class*="rootWithShadow"] > [class*="content"] > div[class*="defaultColor"] > [class*="body"] > div,
+[class*="primaryActions"] > [class*="shinyButton"][class*="colorGreen"] {
     display: none !important;
 }
 
@@ -83,9 +91,14 @@
 [class*="header"] [class*="guildIcon"],
 [class*="premiumIcon"],
 [class*="banner"] > [class*="clickable"],
-[class*="userPopout"] > [class*="header"] > [class*="avatar"] {
+[class*="userPopout"] > [class*="header"] > [class*="avatar"],
+[class*="avatarHoverTarget"],
+[class*="layout"] > [class*="avatar"] > [class*="wrapper"],
+[class*="bannerSVGWrapper"] + [role*="button"],
+[class*="headerInner"] > div > [class*="avatar"] {
     pointer-events: none !important;
 }
+
 
 /* Fix issues that some of the above adjustments cause with profile appearance. */
 /* Banner resizing fix. */
@@ -103,6 +116,10 @@
 /* Make the avatar in the My Account tab align more with the (hidden) banner. */
 [id*="my-account-tab"] > div > div > [class*="children"] > [class*="accountProfileCard"] > [class*="userInfo"] > [class*="avatar"] {
     top: 82px !important;
+}
+/* Message/Add Friend buttons fix (in some profiles). */
+[class*="headerTop"] > [class*="relationshipButtons"] {
+    pointer-events: auto !important;
 }
 
 /* Destroy the "download desktop app" icon. */
@@ -136,6 +153,11 @@
 }
 /* Hide the "Enable Super Reactions" button. */
 [class*="burstToggle"] {
+    display: none !important;
+}
+/* Hide the Nitro ad/popup when trying to react with
+   animated/non-current server emojis. */
+[class*="premiumPromo"] {
     display: none !important;
 }
 
