@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         AntiNitro
-@version      20240713.12.46
+@version      20240821.19.54
 @namespace    userstyles.world/user/kurulen
 @description  Attempts to remove Discord's Nitro-related annoyances in the app.
 @author       kurulen
@@ -82,7 +82,12 @@
 [class*="userProfileInner"] > div > [class*="overlay2"],
 [class*="focusLock"][role*="dialog"] > [class*="rootWithShadow"] > [class*="content"] > h2,
 [class*="focusLock"][role*="dialog"] > [class*="rootWithShadow"] > [class*="content"] > div[class*="defaultColor"] > [class*="body"] > div,
-[class*="primaryActions"] > [class*="shinyButton"][class*="colorGreen"] {
+[class*="primaryActions"] > [class*="shinyButton"][class*="colorGreen"],
+[class*="uploadDropModal"] > [class*="inner"] > [class*="icons"] > [class*="wrapTwo"],
+[class*="uploadDropModal"] > [class*="inner"] > [class*="icons"] > [class*="wrapThree"],
+button[class*="guildBoostCtaSecondary"],
+[style*="https://cdn.discordapp.com/banners/"],
+[class*="layerContainer"] > [class*="layer"] > [role*="dialog"] > [class*="root"]:has([class*="freeTrialPillWithSparkles"]) {
     display: none !important;
 }
 
@@ -90,12 +95,9 @@
 [class*="pointerEvents"],
 [class*="header"] [class*="guildIcon"],
 [class*="premiumIcon"],
-[class*="banner"] > [class*="clickable"],
 [class*="userPopout"] > [class*="header"] > [class*="avatar"],
-[class*="avatarHoverTarget"],
-[class*="layout"] > [class*="avatar"] > [class*="wrapper"],
-[class*="bannerSVGWrapper"] + [role*="button"],
-[class*="headerInner"] > div > [class*="avatar"] {
+[class*="header"] > [class*="avatar"],
+[class*="bannerSVGWrapper"] + [role*="button"] {
     pointer-events: none !important;
 }
 
@@ -113,6 +115,7 @@
 [class*="userProfileInner"] > [class*="scrollerBase"] > div > [class*="avatarWrapper"] {
     top: 16px !important;
 }
+
 /* Make the avatar in the My Account tab align more with the (hidden) banner. */
 [id*="my-account-tab"] > div > div > [class*="children"] > [class*="accountProfileCard"] > [class*="userInfo"] > [class*="avatar"] {
     top: 82px !important;
@@ -247,6 +250,13 @@
 /*******************************************************************************/
 /* OPTIONAL FIXES */
 /*******************************************************************************/
+/* Hide activity on profile popup when clicking your username
+   near the Mute, Deafen, etc. buttons. */
+/* More of a personal bugfix, feel free to remove this: */
+[class*="userPopoutInner"] > [class*="body"]:has([class*="menus"]) > [class*="activityBiteSizePopout"] {
+    display: none !important;
+}
+
 /* Vencord: */
 /* Destroy the random GIF/image that pops up in the Vencord donate card, */
 /* along with a large header at the top of it. */
