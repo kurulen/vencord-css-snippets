@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         AntiNitro
-@version      20240830.07.41
+@version      20240901.06.36
 @namespace    userstyles.world/user/kurulen
 @description  Attempts to remove Discord's Nitro-related annoyances in the app.
 @author       kurulen
@@ -86,7 +86,7 @@
 [class*="uploadDropModal"] > [class*="inner"] > [class*="icons"] > [class*="wrapTwo"],
 [class*="uploadDropModal"] > [class*="inner"] > [class*="icons"] > [class*="wrapThree"],
 button[class*="guildBoostCtaSecondary"],
-[style*="https://cdn.discordapp.com/banners/"],
+[class*="userProfileInner"] > header > svg > foreignObject[mask*="url"] > [style*="background-image:"],
 [class*="layerContainer"] > [class*="layer"] > [role*="dialog"] > [class*="root"]:has([class*="freeTrialPillWithSparkles"]),
 [class*="subText"] > [class*="activity"] > [class*="questsIcon"] {
     display: none !important;
