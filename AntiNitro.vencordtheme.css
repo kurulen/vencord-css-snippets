@@ -86,6 +86,7 @@
 [class*="uploadDropModal"] > [class*="inner"] > [class*="icons"] > [class*="wrapTwo"],
 [class*="uploadDropModal"] > [class*="inner"] > [class*="icons"] > [class*="wrapThree"],
 button[class*="guildBoostCtaSecondary"],
+[style*="https://cdn.discordapp.com/banners/"],
 [class*="userProfileInner"] > header > svg > foreignObject[mask*="url"] > [style*="background-image:"],
 [class*="layerContainer"] > [class*="layer"] > [role*="dialog"] > [class*="root"]:has([class*="freeTrialPillWithSparkles"]),
 [class*="subText"] > [class*="activity"] > [class*="questsIcon"] {
