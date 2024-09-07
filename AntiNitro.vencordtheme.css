@@ -26,18 +26,16 @@
     visibility: hidden !important;
 }
 
-[data-list-item-id*="nitro"],
-[data-list-item-id*="shop"],
 [class*="premiumTab"],
+[class*="container"] [aria-posinset*="2"],
+[class*="linkButton"] > [data-list-item-id*="___shop"],
 [class*="giftButtonContainer"],
 [class*="progressBarContainer"],
 [class*="progressFraction"] > [class*="directionRight"],
 [id*="guild-header-popout-premium-subscribe"],
 [class*="tryItOutSection"],
-[class*="premiumFeatureBannerBackground"],
 [class*="newBackgroundTooltipContainer"],
 [id*="profile-customization-tab"] > [style*="background-image"],
-[class*="children"] [class*="formNotice"],
 [class*="upsellOverlayContainer"],
 [class*="remiumHoverState"],
 [class*="popoutContainer"] [class*="ctaButton"],
@@ -89,7 +87,19 @@ button[class*="guildBoostCtaSecondary"],
 [style*="https://cdn.discordapp.com/banners/"],
 [class*="userProfileInner"] > header > svg > foreignObject[mask*="url"] > [style*="background-image:"],
 [class*="layerContainer"] > [class*="layer"] > [role*="dialog"] > [class*="root"]:has([class*="freeTrialPillWithSparkles"]),
-[class*="subText"] > [class*="activity"] > [class*="questsIcon"] {
+[class*="subText"] > [class*="activity"] > [class*="questsIcon"],
+[class*="avatarUploaderNormal"] > [class*="imageUploader"] > [class*="imageUploaderIconWrapper"] > [class*="avatarUploaderInner"] > div,
+[class*="avatarUploaderNormal"] > [class*="imageUploader"] > [class*="imageUploaderIconWrapper"] > [class*="imageUploaderIcon"],
+[class*="optionBox"]:not(:has([class*="file-input"])),
+[class*="questsContainer"] + [class*="containerWithMargin"] + [class*="containerWithMargin"],
+[class*="effectsWrapper"],
+[class*="reaction"][style*="background: rgba"],
+[class*="burstToggle"],
+[class*="premiumPromo"],
+[class*="heroImage"] + [class*="text"],
+[class*="heroImage"] + [class*="text"] + [class*="perks"],
+[class*="questsContainer"],
+[id*="popout"]:has([class*="wrapper"] [style*="border-radius: 0px 0px 4px 4px"]) {
     display: none !important;
 }
 
@@ -100,78 +110,32 @@ button[class*="guildBoostCtaSecondary"],
 [class*="userPopout"] > [class*="header"] > [class*="avatar"],
 [class*="header"] > [class*="avatar"],
 [class*="bannerSVGWrapper"] + [role*="button"],
-[class*="customizationSection"] > [class*="biteSizeOuter"] > [class*="biteSizeInner"] > [class*="header"] > [class*="mask"] {
+[class*="customizationSection"] > [class*="biteSizeOuter"] > [class*="biteSizeInner"] > [class*="header"] > [class*="mask"],
+[class*="effectsWrapper"],
+[class*="reaction"][style*="background: rgba"] {
     pointer-events: none !important;
 }
-
-
-/* Fix issues that some of the above adjustments cause with profile appearance. */
-/* Banner resizing fix. */
 [class*="userProfileModalInner"] [class*="topSection"] [class*="bannerSVGWrapper"] {
     height: var(--mbanner-height) !important;
     min-height: var(--mbanner-height) !important;
     max-height: var(--mbanner-height) !important;
 }
-/* Avatar fix. */
 [class*="avatarPositionPremiumBanner"],
 [class*="avatarWrapperNormal"],
 [class*="userProfileInner"] > [class*="scrollerBase"] > div > [class*="avatarWrapper"] {
     top: 16px !important;
 }
-
-/* Make the avatar in the My Account tab align more with the (hidden) banner. */
 [id*="my-account-tab"] > div > div > [class*="children"] > [class*="accountProfileCard"] > [class*="userInfo"] > [class*="avatar"] {
     top: 82px !important;
 }
-/* Message/Add Friend buttons fix (in some profiles). */
 [class*="headerTop"] > [class*="relationshipButtons"] {
     pointer-events: auto !important;
 }
-
-/* Destroy the "download desktop app" icon. */
-/* Originally from Vesktop. */
 [class^=listItem_]:has([data-list-item-id=guildsnav___app-download-button]),
 [class^=listItem_]:has(+ [class^=listItem_] [data-list-item-id=guildsnav___app-download-button]) {
     display: none;
 }
 
-/* Remove premium avatar uploading from the Server Profiles tab, */
-/* as well as the Upload GIF button from the Change Avatar popup in the User Profiles tab. */
-[class*="avatarUploaderNormal"] > [class*="imageUploader"] > [class*="imageUploaderIconWrapper"] > [class*="avatarUploaderInner"] > div,
-[class*="avatarUploaderNormal"] > [class*="imageUploader"] > [class*="imageUploaderIconWrapper"] > [class*="imageUploaderIcon"],
-[class*="optionBox"]:not(:has([class*="file-input"])) {
-    display: none !important;
-}
-
-/* Hide the "Gifts You Purchased" header in the Gift Inventory tab. */
-[class*="questsContainer"] + [class*="containerWithMargin"] + [class*="containerWithMargin"] {
-    display: none !important;
-}
-
-/* Hide the Super Reactions. */
-[class*="effectsWrapper"],
-[class*="reaction"][style*="background: rgba"] {
-    display: none !important;
-}
-[class*="effectsWrapper"],
-[class*="reaction"][style*="background: rgba"] {
-    pointer-events: none !important;
-}
-/* Hide the "Enable Super Reactions" button. */
-[class*="burstToggle"] {
-    display: none !important;
-}
-/* Hide the Nitro ad/popup when trying to react with
-   animated/non-current server emojis. */
-[class*="premiumPromo"] {
-    display: none !important;
-}
-
-/*******************************************************************************/
-/* Abandon all hope, ye who enter here... */
-/*******************************************************************************/
-/* HACK: Block an element based on ALL TRANSLATIONS of its aria-label. */
-/* Tabs for Merch and HypeSquad */
 [aria-label*="Merch"],
 [aria-label*="Merch"] + div,
 [aria-label*="Produits dérivés"],
@@ -216,7 +180,6 @@ button[class*="guildBoostCtaSecondary"],
 [aria-label*="週邊商品"] + div,
 [aria-label*="굿즈"],
 [aria-label*="굿즈"] + div,
-/* Tab for Gift Inventory */
 [aria-label*="Gave inventar"],
 [aria-label*="Geschenkinventar"],
 [aria-label*="Gift Inventory"],
@@ -247,7 +210,6 @@ button[class*="guildBoostCtaSecondary"],
 [aria-label*="ギフトインベントリ"],
 [aria-label*="禮物庫存"],
 [aria-label*="선물 인벤토리"],
-/* Tab for Server Boost */
 [aria-label*="Privacy & Safety"] + [role*="tab"],
 [aria-label*="Privatliv og sikkerhed"] + [role*="tab"],
 [aria-label*="Verknüpfungen"] + [role*="tab"],
@@ -257,55 +219,11 @@ button[class*="guildBoostCtaSecondary"],
     display: none !important;
 }
 
-/*******************************************************************************/
-/* OPTIONAL FIXES */
-/*******************************************************************************/
-/* Hide activity on profile popup when clicking your username
-   near the Mute, Deafen, etc. buttons. */
-/* More of a personal bugfix, feel free to remove this: */
-[class*="userPopoutInner"] > [class*="body"]:has([class*="menus"]) > [class*="activityBiteSizePopout"] {
-    display: none !important;
-}
-
-/* Vencord: */
-/* Destroy the random GIF/image that pops up in the Vencord donate card, */
-/* along with a large header at the top of it. */
 [class*="vc-settings-donate"] > img {
     display: none !important;
 }
 [class*="vc-settings-donate"] > div > [class*="defaultMarginh5"] {
     display: none !important;
 }
-
-/* Quests: */
-/* Hide the quest menu in the Gift Inventory. */
-[class*="questsContainer"] {
-    display: none !important;
-}
-/* Hide the quest popup. */
-[id*="popout"]:has([class*="wrapper"] [style*="border-radius: 0px 0px 4px 4px"]) {
-    display: none !important;
-}
-
-/* Server Boosts: */
-/* Hide the text and perks list on the first part of the Buy Boosts menu. */
-/* This is added because it talks about badges, a feature I've removed in this userstyle
-   due to Nitro users' badges containing what are essentially Nitro upsells on their profile. */
-[class*="heroImage"] + [class*="text"],
-[class*="heroImage"] + [class*="text"] + [class*="perks"] {
-    display: none !important;
-}
-
-/* Hide the Buy Boosts menu on the server's channel sidebar if there's a goal showing.
-   Commented out by default.
-   ------------------------- */
-/* To uncomment this section, remove this line.
-[class*="containerWithMargin"] [class*="textArea"] [class*="progressFraction"] {
-    display: none !important;
-}
-[id*="channels"] ul[class*="content"] div[class*="containerWithMargin"] {
-    pointer-events: none !important;
-}
-To uncomment this section, remove this line. */
 
 /* } */
