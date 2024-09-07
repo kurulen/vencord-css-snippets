@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         AntiNitro
-@version      20240901.06.36
+@version      20240907.11.34
 @namespace    userstyles.world/user/kurulen
 @description  Attempts to remove Discord's Nitro-related annoyances in the app.
 @author       kurulen
@@ -168,7 +168,7 @@ button[class*="guildBoostCtaSecondary"],
 }
 
 /*******************************************************************************/
-/* Abandon all hope, all ye who enter here... */
+/* Abandon all hope, ye who enter here... */
 /*******************************************************************************/
 /* HACK: Block an element based on ALL TRANSLATIONS of its aria-label. */
 /* Tabs for Merch and HypeSquad */
@@ -246,7 +246,14 @@ button[class*="guildBoostCtaSecondary"],
 [aria-label*="購読"],
 [aria-label*="ギフトインベントリ"],
 [aria-label*="禮物庫存"],
-[aria-label*="선물 인벤토리"] {
+[aria-label*="선물 인벤토리"],
+/* Tab for Server Boost */
+[aria-label*="Privacy & Safety"] + [role*="tab"],
+[aria-label*="Privatliv og sikkerhed"] + [role*="tab"],
+[aria-label*="Verknüpfungen"] + [role*="tab"],
+[aria-label*="Confidentialité & Sécurité"] + [role*="tab"],
+[aria-label*="Privatnost i sigurnost"] + [role*="tab"],
+[aria-label*="Verbindingen"] + [role*="tab"] {
     display: none !important;
 }
 
