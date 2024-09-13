@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         AntiNitro
-@version      20240907.11.34
+@version      20240913.18.44
 @namespace    userstyles.world/user/kurulen
 @description  Attempts to remove Discord's Nitro-related annoyances in the app.
 @author       kurulen
@@ -22,7 +22,7 @@
 [class*="userProfile"] > [class*="scrollerBase"] > [class*="body"] > [class*="container"] > [class*="tags"] > [role*="group"],
 [class*="bannerPremium"],
 [class*="headerTop"] > [class*="badgeList"],
-[class*="focusLock"][role*="dialog"] > [class*="rootWithShadow"] > [class*="artContainer"] {
+[class*="focusLock"][role*="dialog"][aria-modal*="true"] > [class*="rootWithShadow"] {
     visibility: hidden !important;
 }
 
@@ -99,7 +99,8 @@ button[class*="guildBoostCtaSecondary"],
 [class*="heroImage"] + [class*="text"],
 [class*="heroImage"] + [class*="text"] + [class*="perks"],
 [class*="questsContainer"],
-[id*="popout"]:has([class*="wrapper"] [style*="border-radius: 0px 0px 4px 4px"]) {
+[id*="popout"]:has([class*="wrapper"] [style*="border-radius: 0px 0px 4px 4px"]),
+[aria-controls*="nitro-server-boost-tab"] {
     display: none !important;
 }
 
