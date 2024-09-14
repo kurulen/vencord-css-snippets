@@ -22,7 +22,7 @@
 [class*="userProfile"] > [class*="scrollerBase"] > [class*="body"] > [class*="container"] > [class*="tags"] > [role*="group"],
 [class*="bannerPremium"],
 [class*="headerTop"] > [class*="badgeList"],
-[class*="focusLock"][role*="dialog"][aria-modal*="true"] > [class*="rootWithShadow"] {
+[class*="fullscreenOnMobile"][class*="rootWithShadow"]:has(> [class*="artContainer"]) {
     visibility: hidden !important;
 }
 
